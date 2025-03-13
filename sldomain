@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map with Leaflet.js</title>
+    <!-- Link to Leaflet CSS -->  
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Set map size */
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Interactive Map Example</h1>
+
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <!-- Include Leaflet.js -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Include Leaflet Omnivore plugin to handle shapefiles -->
+    <script src="https://unpkg.com/leaflet-omnivore/leaflet-omnivore.min.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([13.5250, 123.3486], 13); // Set to a specific location (latitude, longitude)
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Load a shapefile (Dropbox link with ?raw=1)
+        var shapefileUrl = 'https://www.dropbox.com/scl/fi/34ufb08ywugebg8fvuq9w/Bicol_Region_3.zip?rlkey=jai4xyejhftkxp7i8qr2cltlm&st=o7x4lslp&?raw=1'; // Dropbox link to a zipped shapefile
+
+        // Add the shapefile to the map
+        omnivore.shapefile(shapefileUrl).addTo(map);
+    </script>
+
+</body>
+</html>
