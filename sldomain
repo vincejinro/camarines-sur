@@ -37,7 +37,7 @@
         }).addTo(map);
 
         // Load a shapefile (Dropbox link with ?raw=1)
-        var shapefileUrl = 'https://www.dropbox.com/scl/fi/34ufb08ywugebg8fvuq9w/Bicol_Region_3.zip?rlkey=jai4xyejhftkxp7i8qr2cltlm&st=o7x4lslp&?raw=1'; // Dropbox link to a zipped shapefile
+        var shapefileUrl = 'https://raw.githubusercontent.com/vincejinro/camarines-sur/refs/heads/main/Bicol_Region_3.zip'; // Dropbox link to a zipped shapefile
 
         // Add the shapefile to the map
         omnivore.shapefile(shapefileUrl).addTo(map);
